@@ -9,22 +9,26 @@ String.class_eval do
     dirs = to_directory_tree_parts[0..-2]
     File.join(*dirs)
   end
-  
+
   def to_directory_tree_parts
     val = String.new self
     val.gsub!(/\s/, '')
     raise "not a numeric string" unless val =~ /^\d+$/
-    
+
     dirs = []
-    
+
     val.reverse!
-    
+
     while val =~ /\d{1,2}/
       dirs << $&
       val = $'
     end
-    
+
     dirs.reverse!
     dirs.map!(&:reverse)
+  end
+
+  def pluralize_on(count)
+    count == 1 ? singularize : pluralize
   end
 end
