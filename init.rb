@@ -2,6 +2,7 @@ require 'azimux/azimux'
 
 require 'find'
 
-Find.find(File.join(File.dirname(__FILE__), "azimux", "ext")) do |p|
-  require p if p =~ /.rb$/
+Find.find(File.join(File.dirname(__FILE__), "lib", "azimux", "ext")) do |p|
+  puts p
+  require p if p =~ /\.rb$/ && p !~ /\.svn/
 end
