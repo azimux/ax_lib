@@ -7,7 +7,12 @@ Regexp.class_eval do
     while s =~ self
       retval << MatchesMatch.new(start, $~)
       start += $~.end(0)
-      s = $'
+
+      s = if s == $'
+        $'[1..-1]
+      else
+        $'
+      end
     end
 
     retval
