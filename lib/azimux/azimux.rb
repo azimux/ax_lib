@@ -14,4 +14,8 @@ module Azimux
     end
     retval
   end
+
+  def self.sorter symbol
+    proc {|left, right| left.send(symbol) <=> right.send(symbol)}
+  end
 end
