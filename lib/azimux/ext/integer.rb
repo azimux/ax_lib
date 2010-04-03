@@ -1,6 +1,5 @@
 Integer.class_eval do
   def Integer.get_b64_chars
-    #B64Helper.Ints = new Dictionary<char, int>(64);
     @b64_chars ||= "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-"
   end  
 
