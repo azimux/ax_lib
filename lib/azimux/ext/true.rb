@@ -6,4 +6,8 @@ TrueClass.class_eval do
   def yesno
     "yes"
   end
+
+  def to_bool
+    self
+  end
 end

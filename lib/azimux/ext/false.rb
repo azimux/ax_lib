@@ -6,4 +6,8 @@ FalseClass.class_eval do
   def yesno
     "no"
   end
+
+  def to_bool
+    self
+  end
 end
