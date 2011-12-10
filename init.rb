@@ -1,4 +1,4 @@
-require 'azimux/azimux'
+require 'azimux'
 
 require 'find'
 
