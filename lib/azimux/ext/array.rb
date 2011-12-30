@@ -6,7 +6,7 @@ Array.class_eval do
     else
       l = last
       f = self[0..(size - 2)]
-      return "#{f.join(', ')} and #{l}"
+      return safe_join(safe_join(f, ', '), " and ".html_safe, l)
     end
   end
 end
