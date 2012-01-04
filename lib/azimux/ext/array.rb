@@ -4,9 +4,17 @@ Array.class_eval do
     when 0 then return ''
     when 1 then return self[0]
     else
-      l = last
-      f = self[0..(size - 2)]
-      return safe_join(safe_join(f, ', '), " and ".html_safe, l)
+      joiner = Object.new
+      joiner.extend(ActionView::Helpers::OutputSafetyHelper)
+
+      all_but_last = self[0..(size - 2)]
+
+      joiner.safe_join(
+        [
+          joiner.safe_join(all_but_last, ', '.html_safe),
+          " and ".html_safe,
+          last
+        ])
     end
   end
 end
