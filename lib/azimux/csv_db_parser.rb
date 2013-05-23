@@ -8,7 +8,7 @@ module Azimux
     end
 
     def parse(csv)
-      CSV::Reader.parse(csv) do |row|
+      CSV.parse(csv) do |row|
         if !headers && !skip?(row)
           self.headers = row
         elsif !skip?(row)

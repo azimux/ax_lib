@@ -1,5 +1,5 @@
 String.class_eval do
-  raise "to_directory_tree already defined" if methods.index('to_directory_tree')
+  raise "to_directory_tree already defined" if methods.include?(:to_directory_tree)
   def to_directory_tree
     dirs = to_directory_tree_parts
     File.join(*dirs)
