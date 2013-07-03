@@ -7,6 +7,7 @@ module AxLib
 
       require 'find'
 
+      required = false
       Find.find(File.join(File.dirname(__FILE__), "azimux", "ext")) do |p|
         p = p.to_s
         required = true
