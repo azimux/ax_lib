@@ -25,6 +25,20 @@ Ax.Window = {
       return false;
     }
     );
+
+      $.fn.scrollMeIntoView = function () {
+          var $container = this.scrollParent(),
+              containerTop = $container.offset().top,
+              containerBottom = containerTop + $container.height(),
+              elemTop = this.offset().top,
+              elemBottom = elemTop + this.height();
+
+          // if (elemTop < containerTop) {
+          $container.scrollTop(elemTop);
+          /* } else if (elemBottom > containerBottom) {
+           $container.scrollTop(elemBottom - $container.height());
+           }  */
+      }
   }
 };
 
